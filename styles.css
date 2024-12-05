@@ -86,6 +86,27 @@ button:hover {
     background-color: #45a049;
 }
 
+/* Estilo do botão de navegação */
+.navegacao {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-cliente {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-cliente:hover {
+    background-color: #45a049;
+}
+
 /* Lista de produtos */
 #produtos-lista {
     display: flex;
@@ -111,6 +132,23 @@ button:hover {
     margin: 5px 0;
     font-size: 0.9rem;
     color: #555;
+}
+
+/* Estilo para imagem do produto */
+.produto-imagem {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+/* Estilo do formulário de adicionar produto */
+input[type="file"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 /* Responsividade */
