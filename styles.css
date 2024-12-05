@@ -16,50 +16,29 @@ body {
 header {
     background-color: #4CAF50;
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
+    text-align: center;
+    padding: 20px 10px;
     position: relative;
     border-bottom: 3px solid #3e8e41;
 }
 
-/* Container para logo e título */
-.logo-titulo-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
 /* Logo */
 .logo-container {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px; /* Espaço entre a logo e o título */
 }
 
 #logo {
-    max-width: 70px;
-    max-height: 70px;
+    width: 120px; /* Aumenta o tamanho da logo */
+    height: auto;
     object-fit: contain;
+    display: block;
+    margin: 0 auto; /* Centraliza a logo */
 }
 
 /* Título */
 h1 {
     font-size: 2.5rem;
-    text-align: center;
-    margin: 0;
+    margin: 10px 0;
 }
 
 /* Seções */
@@ -182,14 +161,8 @@ input[type="file"] {
         font-size: 2rem;
     }
 
-    .logo-container {
-        width: 70px;
-        height: 70px;
-    }
-
     #logo {
-        max-width: 60px;
-        max-height: 60px;
+        width: 100px; /* Ajusta o tamanho da logo em telas menores */
     }
 }
 
@@ -202,14 +175,8 @@ input[type="file"] {
         font-size: 1.8rem;
     }
 
-    .logo-container {
-        width: 60px;
-        height: 60px;
-    }
-
     #logo {
-        max-width: 50px;
-        max-height: 50px;
+        width: 80px; /* Reduz a logo */
     }
 }
 
@@ -227,13 +194,7 @@ input[type="file"] {
         flex: 1 1 100%; /* Uma coluna no celular */
     }
 
-    .logo-container {
-        width: 50px;
-        height: 50px;
-    }
-
     #logo {
-        max-width: 40px;
-        max-height: 40px;
+        width: 70px; /* Reduz ainda mais a logo */
     }
 }
