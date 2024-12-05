@@ -16,9 +16,10 @@
     <main>
         <section class="adicionar-produto">
             <h2>Adicionar Produto</h2>
-            <form id="form-produto">
+            <form id="form-produto" enctype="multipart/form-data">
                 <input type="text" id="nome" placeholder="Nome do Produto" required>
                 <input type="number" id="preco" placeholder="Preço (R$)" step="0.01" required>
+                <input type="file" id="imagem" accept="image/*" required>
                 <button type="submit">Adicionar</button>
             </form>
         </section>
@@ -30,6 +31,11 @@
         <section class="catalogo">
             <h2>Produtos</h2>
             <div id="produtos-lista"></div>
+        </section>
+        <section class="navegacao">
+            <a href="catalogo.html">
+                <button class="btn-cliente">Ver Catálogo</button>
+            </a>
         </section>
     </main>
     <script src="script.js"></script>
