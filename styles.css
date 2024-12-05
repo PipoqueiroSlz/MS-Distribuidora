@@ -17,10 +17,10 @@ header {
     background-color: #4CAF50;
     color: white;
     display: flex;
-    align-items: center; /* Alinha os itens verticalmente */
-    padding: 10px 20px; /* Reduz o padding vertical */
+    align-items: center; /* Centraliza verticalmente a logo e o título */
+    padding: 10px 20px; /* Reduz o padding para diminuir o espaço verde */
     border-bottom: 3px solid #3e8e41;
-    min-height: 100px; /* Garante altura mínima */
+    height: auto; /* Ajusta a altura dinamicamente */
 }
 
 /* Logo */
@@ -29,7 +29,7 @@ header {
 }
 
 #logo {
-    width: 120px;
+    width: 100px; /* Tamanho ajustado da logo */
     height: auto;
     object-fit: contain;
     display: block;
@@ -37,7 +37,7 @@ header {
 
 /* Título */
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem; /* Reduz levemente o tamanho */
     margin: 0 auto; /* Centraliza o título no espaço restante */
     text-align: center;
     flex: 1; /* Faz o título ocupar o restante do espaço */
@@ -160,11 +160,11 @@ input[type="file"] {
     }
 
     header h1 {
-        font-size: 2.4rem;
+        font-size: 2rem;
     }
 
     #logo {
-        width: 100px;
+        width: 90px;
     }
 }
 
@@ -174,7 +174,7 @@ input[type="file"] {
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     #logo {
