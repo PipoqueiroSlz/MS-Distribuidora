@@ -41,6 +41,7 @@ h1 {
     margin: 0;
     font-size: 2rem;
     padding-left: 150px;
+    text-align: center; /* Centraliza o título por padrão */
 }
 
 /* Seções */
@@ -172,6 +173,8 @@ input[type="file"] {
 
     h1 {
         font-size: 1.5rem;
+        padding-left: 0; /* Remove o padding à esquerda para melhor ajuste */
+        text-align: center; /* Centraliza o título nas telas menores */
     }
 
     .produto-item {
@@ -182,6 +185,7 @@ input[type="file"] {
 @media (max-width: 480px) {
     h1 {
         font-size: 1.2rem;
+        padding-left: 0; /* Remove o padding à esquerda */
     }
 
     input, button {
