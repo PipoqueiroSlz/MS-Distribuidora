@@ -9,38 +9,42 @@ const listaProdutos = document.getElementById("produtos-lista");
 
 // Adiciona um produto ao catálogo
 formProduto.addEventListener("submit", (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Evitar que o formulário faça uma submissão padrão
+
+    // Obtendo os valores do formulário
     const nome = document.getElementById("nome").value;
     const preco = parseFloat(document.getElementById("preco").value);
-    const imagem = document.getElementById("imagem").files[0];
+    const imagem = document.getElementById("imagem").files[0]; // Arquivo de imagem
+
     // Verificar se todos os campos obrigatórios foram preenchidos
-    if (!nome || !preco || !imagem) {
-        alert("Todos os campos devem ser preenchidos!");
+    if (!nome || isNaN(preco) || !imagem) {
+        alert("Todos os campos devem ser preenchidos corretamente!");
         return;
     }
 
+    // Criando o produto
     const produto = { 
         id: produtos.length + 1, 
         nome, 
         preco, 
-        imagem,
-        categoria, 
-        estoque 
+        imagem
     };
-    produtos.push(produto);
+    produtos.push(produto); // Adicionando o produto ao array de produtos
 
-    // Limpar os campos do formulário
+    // Limpando os campos do formulário
     document.getElementById("nome").value = "";
     document.getElementById("preco").value = "";
     document.getElementById("imagem").value = "";
 
+    // Renderizando a lista de produtos
     renderizarProdutos(produtos);
     alert(`Produto "${nome}" adicionado com sucesso!`);
 });
 
 // Renderiza a lista de produtos
 function renderizarProdutos(lista) {
-    listaProdutos.innerHTML = "";
+    listaProdutos.innerHTML = ""; // Limpar lista atual
+
     lista.forEach((produto) => {
         const produtoItem = document.createElement("div");
         produtoItem.classList.add("produto-item");
