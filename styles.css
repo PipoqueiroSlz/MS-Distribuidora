@@ -1,12 +1,9 @@
-/* Reset básico */
-* {
+/* Estilo básico para o layout */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
     background-color: #f9f9f9;
 }
 
@@ -14,36 +11,37 @@ body {
 header {
     background-color: #4CAF50;
     color: white;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    border-bottom: 3px solid #3e8e41;
-    height: auto;
-    justify-content: center;
+    text-align: center;
+    padding: 1rem 0;
     position: relative;
 }
 
-/* Logo */
 .logo-container {
     position: absolute;
-    left: 20px;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #logo {
-    width: 80px; /* Tamanho levemente reduzido */
-    height: auto;
+    max-width: 110px;
+    max-height: 110px;
     object-fit: contain;
+    border-radius: 4px;
 }
 
-/* Título */
 h1 {
-    font-size: 2rem;
-    text-align: center;
-    flex: 1;
     margin: 0;
+    font-size: 2rem;
+    padding-left: 150px;
+    text-align: center; /* Centraliza o título por padrão */
 }
 
 /* Seções */
@@ -59,7 +57,7 @@ section {
 
 h2 {
     margin-bottom: 10px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #333;
 }
 
@@ -70,7 +68,7 @@ form {
 }
 
 input, button {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -89,7 +87,7 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Botão de navegação */
+/* Estilo do botão de navegação */
 .navegacao {
     text-align: center;
     margin-top: 20px;
@@ -115,16 +113,14 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: center;
 }
 
 .produto-item {
-    flex: 1 1 calc(33.333% - 15px);
+    flex: 1 1 calc(50% - 15px);
     background-color: #f1f1f1;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
 .produto-item h3 {
@@ -148,61 +144,63 @@ button:hover {
     border-radius: 8px;
 }
 
-/* Campo de upload */
+/* Estilo do formulário de adicionar produto */
 input[type="file"] {
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 /* Responsividade */
-@media (max-width: 1024px) {
-    .produto-item {
-        flex: 1 1 calc(50% - 15px);
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    #logo {
-        width: 70px;
-    }
-}
-
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
+        text-align: left;
+        padding-left: 140px;
     }
 
     .logo-container {
-        position: static;
-        margin-bottom: 10px;
-    }
-
-    header h1 {
-        font-size: 1.6rem;
+        top: 10px;
+        left: 10px;
+        width: 80px; /* Diminui o tamanho da logo */
+        height: 80px; /* Ajusta a altura também */
     }
 
     #logo {
-        width: 70px;
+        max-width: 70px; /* Reduz a largura da logo */
+        max-height: 70px; /* Reduz a altura da logo */
     }
-}
 
-@media (max-width: 480px) {
-    input, button {
-        font-size: 0.9rem;
-        padding: 8px;
+    h1 {
+        font-size: 1.5rem;
+        padding-left: 0; /* Remove o padding à esquerda para melhor ajuste */
+        text-align: center; /* Centraliza o título nas telas menores */
     }
 
     .produto-item {
         flex: 1 1 100%;
     }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+        padding-left: 0; /* Remove o padding à esquerda */
+    }
+
+    input, button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    /* Reduz ainda mais a logo em telas muito pequenas */
+    .logo-container {
+        width: 60px;
+        height: 60px;
+    }
 
     #logo {
-        width: 60px;
+        max-width: 50px;
+        max-height: 50px;
     }
 }
