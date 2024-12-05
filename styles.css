@@ -14,7 +14,7 @@ header {
     padding: 0.5rem 0; /* Diminuído o padding para cabeçalho mais compacto */
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Garante que a logo fique no canto esquerdo */
     align-items: center;
 }
 
@@ -39,13 +39,6 @@ header {
     border-radius: 4px;
 }
 
-h1 {
-    margin: 0;
-    font-size: 2rem;
-    text-align: center; /* Centraliza o título */
-    padding-left: 150px; /* Distância da logo */
-}
-
 /* Seções */
 section {
     margin: 20px auto;
@@ -61,97 +54,6 @@ h2 {
     margin-bottom: 10px;
     font-size: 1.5rem;
     color: #333;
-}
-
-/* Formulários */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-input, button {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Estilo do botão de navegação */
-.navegacao {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.btn-cliente {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-cliente:hover {
-    background-color: #45a049;
-}
-
-/* Lista de produtos */
-#produtos-lista {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.produto-item {
-    flex: 1 1 calc(50% - 15px);
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.produto-item h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: #4CAF50;
-}
-
-.produto-item p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Estilo para imagem do produto */
-.produto-imagem {
-    width: 100%;
-    height: auto;
-    max-width: 150px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-
-/* Estilo do formulário de adicionar produto */
-input[type="file"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
 /* Responsividade */
@@ -172,27 +74,9 @@ input[type="file"] {
         max-width: 90px; /* Ajusta o tamanho da logo */
         max-height: 90px; /* Ajusta a altura da logo */
     }
-
-    h1 {
-        font-size: 1.8rem;
-        padding-left: 0; /* Remove o padding à esquerda para melhor ajuste */
-    }
-
-    .produto-item {
-        flex: 1 1 100%; /* Exibe os produtos em uma coluna no mobile */
-    }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    input, button {
-        font-size: 0.9rem;
-        padding: 8px;
-    }
-
     .logo-container {
         width: 80px; /* Diminui ainda mais o tamanho da logo */
         height: 80px;
