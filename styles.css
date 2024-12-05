@@ -17,13 +17,23 @@ header {
     background-color: #4CAF50;
     color: white;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 1rem 1rem;
+    padding: 1rem 0;
     position: relative;
     border-bottom: 3px solid #3e8e41;
 }
 
+/* Container para logo e título */
+.logo-titulo-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Logo */
 .logo-container {
     position: absolute;
     top: 50%;
@@ -45,9 +55,11 @@ header {
     object-fit: contain;
 }
 
+/* Título */
 h1 {
     font-size: 2.5rem;
     text-align: center;
+    margin: 0;
 }
 
 /* Seções */
