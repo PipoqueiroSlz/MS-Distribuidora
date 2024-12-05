@@ -161,6 +161,13 @@ input[type="file"] {
     .logo-container {
         top: 10px;
         left: 10px;
+        width: 80px; /* Diminui o tamanho da logo */
+        height: 80px; /* Ajusta a altura também */
+    }
+
+    #logo {
+        max-width: 70px; /* Reduz a largura da logo */
+        max-height: 70px; /* Reduz a altura da logo */
     }
 
     h1 {
@@ -180,5 +187,16 @@ input[type="file"] {
     input, button {
         font-size: 0.9rem;
         padding: 8px;
+    }
+
+    /* Reduz ainda mais a logo em telas muito pequenas */
+    .logo-container {
+        width: 60px;
+        height: 60px;
+    }
+
+    #logo {
+        max-width: 50px;
+        max-height: 50px;
     }
 }
