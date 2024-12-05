@@ -1,26 +1,12 @@
 const express = require('express');
-const mysql = require('mysql2');
+const fs = require('fs');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
-// Conectar ao banco de dados MySQL
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root', // substitua pelo seu usuário do MySQL
-    password: '', // substitua pela sua senha do MySQL
-    database: 'ms_distribuidora'
-});
-
-// Verifica se a conexão foi bem-sucedida
-db.connect((err) => {
-    if (err) {
-        console.error('Erro ao conectar ao banco de dados:', err);
-        return;
-    }
-    console.log('Conectado ao banco de dados MySQL!');
-});
+// Definir o caminho para o arquivo JSON onde os produtos serão armazenados
+const produtosFilePath = './produtos.json';
 
 // Middleware
 app.use(bodyParser.json());
@@ -38,31 +24,43 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+// Função para ler os produtos do arquivo JSON
+const lerProdutos = () => {
+    if (!fs.existsSync(produtosFilePath)) {
+        return []; // Retorna um array vazio se o arquivo não existir
+    }
+    const data = fs.readFileSync(produtosFilePath);
+    return JSON.parse(data);
+};
+
+// Função para salvar os produtos no arquivo JSON
+const salvarProdutos = (produtos) => {
+    fs.writeFileSync(produtosFilePath, JSON.stringify(produtos, null, 2));
+};
+
 // Rota para adicionar um produto
 app.post('/api/produtos', upload.single('imagem'), (req, res) => {
     const { nome, preco } = req.body;
     const imagem = req.file.filename; // O nome do arquivo da imagem
 
-    const query = 'INSERT INTO produtos (nome, preco, imagem) VALUES (?, ?, ?)';
-    db.query(query, [nome, preco, imagem], (err, result) => {
-        if (err) {
-            console.error('Erro ao adicionar produto:', err);
-            return res.status(500).send('Erro ao adicionar produto');
-        }
-        res.status(201).json({ id: result.insertId, nome, preco, imagem });
-    });
+    const produtos = lerProdutos(); // Lê os produtos atuais
+    const novoProduto = {
+        id: produtos.length + 1,
+        nome,
+        preco,
+        imagem
+    };
+
+    produtos.push(novoProduto); // Adiciona o novo produto ao array
+    salvarProdutos(produtos); // Salva no arquivo JSON
+
+    res.status(201).json(novoProduto); // Retorna o produto adicionado
 });
 
 // Rota para listar todos os produtos
 app.get('/api/produtos', (req, res) => {
-    const query = 'SELECT * FROM produtos';
-    db.query(query, (err, results) => {
-        if (err) {
-            console.error('Erro ao obter produtos:', err);
-            return res.status(500).send('Erro ao obter produtos');
-        }
-        res.status(200).json(results);
-    });
+    const produtos = lerProdutos(); // Lê os produtos do arquivo
+    res.status(200).json(produtos); // Retorna os produtos para o frontend
 });
 
 // Inicializando o servidor
