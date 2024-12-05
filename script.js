@@ -12,12 +12,9 @@ formProduto.addEventListener("submit", (event) => {
     event.preventDefault();
     const nome = document.getElementById("nome").value;
     const preco = parseFloat(document.getElementById("preco").value);
-    const imagem = document.getElementById("imagem").files[0]; // Arquivo de imagem
-    const categoria = document.getElementById("categoria").value;
-    const estoque = parseInt(document.getElementById("estoque").value);
-
+    const imagem = document.getElementById("imagem").files[0];
     // Verificar se todos os campos obrigatórios foram preenchidos
-    if (!nome || !preco || !imagem || !categoria || !estoque) {
+    if (!nome || !preco || !imagem) {
         alert("Todos os campos devem ser preenchidos!");
         return;
     }
@@ -36,8 +33,6 @@ formProduto.addEventListener("submit", (event) => {
     document.getElementById("nome").value = "";
     document.getElementById("preco").value = "";
     document.getElementById("imagem").value = "";
-    document.getElementById("categoria").value = "";
-    document.getElementById("estoque").value = "";
 
     renderizarProdutos(produtos);
     alert(`Produto "${nome}" adicionado com sucesso!`);
@@ -53,8 +48,6 @@ function renderizarProdutos(lista) {
             <h3>${produto.nome}</h3>
             <img src="${URL.createObjectURL(produto.imagem)}" class="produto-imagem" alt="${produto.nome}">
             <p><strong>Preço:</strong> R$${produto.preco.toFixed(2)}</p>
-            <p><strong>Categoria:</strong> ${produto.categoria}</p>
-            <p><strong>Estoque:</strong> ${produto.estoque}</p>
             <button class="btn-editar">Editar</button>
             <button class="btn-excluir">Excluir</button>
         `;
