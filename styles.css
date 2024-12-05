@@ -17,28 +17,30 @@ header {
     background-color: #4CAF50;
     color: white;
     text-align: center;
-    padding: 20px 10px;
-    position: relative;
+    padding: 40px 10px;
     border-bottom: 3px solid #3e8e41;
+    position: relative;
 }
 
 /* Logo */
 .logo-container {
-    margin-bottom: 10px; /* Espaço entre a logo e o título */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Espaço entre a logo e o título */
 }
 
 #logo {
-    width: 120px; /* Aumenta o tamanho da logo */
+    width: 180px; /* Tamanho aumentado da logo */
     height: auto;
     object-fit: contain;
     display: block;
-    margin: 0 auto; /* Centraliza a logo */
 }
 
 /* Título */
 h1 {
-    font-size: 2.5rem;
-    margin: 10px 0;
+    font-size: 2.8rem;
+    margin-top: 0;
 }
 
 /* Seções */
@@ -158,11 +160,11 @@ input[type="file"] {
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
 
     #logo {
-        width: 100px; /* Ajusta o tamanho da logo em telas menores */
+        width: 150px; /* Ajusta o tamanho da logo em telas menores */
     }
 }
 
@@ -172,11 +174,11 @@ input[type="file"] {
     }
 
     header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     #logo {
-        width: 80px; /* Reduz a logo */
+        width: 120px; /* Reduz a logo */
     }
 }
 
@@ -195,6 +197,6 @@ input[type="file"] {
     }
 
     #logo {
-        width: 70px; /* Reduz ainda mais a logo */
+        width: 100px; /* Reduz ainda mais a logo */
     }
 }
