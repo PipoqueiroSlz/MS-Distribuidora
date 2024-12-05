@@ -16,6 +16,12 @@ formProduto.addEventListener("submit", (event) => {
     const categoria = document.getElementById("categoria").value;
     const estoque = parseInt(document.getElementById("estoque").value);
 
+    // Verificar se todos os campos obrigatórios foram preenchidos
+    if (!nome || !preco || !imagem || !categoria || !estoque) {
+        alert("Todos os campos devem ser preenchidos!");
+        return;
+    }
+
     const produto = { 
         id: produtos.length + 1, 
         nome, 
@@ -26,6 +32,7 @@ formProduto.addEventListener("submit", (event) => {
     };
     produtos.push(produto);
 
+    // Limpar os campos do formulário
     document.getElementById("nome").value = "";
     document.getElementById("preco").value = "";
     document.getElementById("imagem").value = "";
