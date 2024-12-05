@@ -7,8 +7,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f9f9f9;
 }
 
@@ -17,30 +15,35 @@ header {
     background-color: #4CAF50;
     color: white;
     display: flex;
-    align-items: center; /* Centraliza verticalmente a logo e o título */
-    padding: 10px 20px; /* Reduz o padding para diminuir o espaço verde */
+    align-items: center;
+    padding: 10px 20px;
     border-bottom: 3px solid #3e8e41;
-    height: auto; /* Ajusta a altura dinamicamente */
+    height: auto;
+    justify-content: center;
+    position: relative;
 }
 
 /* Logo */
 .logo-container {
-    margin-right: 20px; /* Espaço entre a logo e o título */
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #logo {
-    width: 100px; /* Tamanho ajustado da logo */
+    width: 80px; /* Tamanho levemente reduzido */
     height: auto;
     object-fit: contain;
-    display: block;
 }
 
 /* Título */
 h1 {
-    font-size: 2.2rem; /* Reduz levemente o tamanho */
-    margin: 0 auto; /* Centraliza o título no espaço restante */
+    font-size: 2rem;
     text-align: center;
-    flex: 1; /* Faz o título ocupar o restante do espaço */
+    flex: 1;
+    margin: 0;
 }
 
 /* Seções */
@@ -160,44 +163,36 @@ input[type="file"] {
     }
 
     header h1 {
-        font-size: 2rem;
-    }
-
-    #logo {
-        width: 90px;
-    }
-}
-
-@media (max-width: 768px) {
-    .produto-item {
-        flex: 1 1 calc(50% - 15px);
-    }
-
-    header h1 {
         font-size: 1.8rem;
     }
 
     #logo {
-        width: 80px;
+        width: 70px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     header {
         flex-direction: column;
         align-items: center;
+        padding: 15px;
     }
 
     .logo-container {
-        margin-right: 0;
+        position: static;
         margin-bottom: 10px;
     }
 
     header h1 {
-        font-size: 1.5rem;
-        text-align: center;
+        font-size: 1.6rem;
     }
 
+    #logo {
+        width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
     input, button {
         font-size: 0.9rem;
         padding: 8px;
@@ -208,6 +203,6 @@ input[type="file"] {
     }
 
     #logo {
-        width: 70px;
+        width: 60px;
     }
 }
