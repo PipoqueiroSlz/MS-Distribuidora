@@ -41,8 +41,7 @@ h1 {
     margin: 0;
     font-size: 2rem;
     padding-left: 150px;
-    text-align: center; /* Centraliza o título */
-    width: 100%; /* Garante que o título ocupe toda a largura disponível */
+    text-align: center; /* Centraliza o título por padrão */
 }
 
 /* Seções */
@@ -174,9 +173,8 @@ input[type="file"] {
 
     h1 {
         font-size: 1.5rem;
-        padding-left: 0; /* Remove o padding à esquerda */
-        text-align: center; /* Garante que o título seja centralizado */
-        width: 100%; /* Garante que o título ocupe toda a largura disponível */
+        padding-left: 0; /* Remove o padding à esquerda para melhor ajuste */
+        text-align: center; /* Centraliza o título nas telas menores */
     }
 
     .produto-item {
@@ -188,7 +186,6 @@ input[type="file"] {
     h1 {
         font-size: 1.2rem;
         padding-left: 0; /* Remove o padding à esquerda */
-        text-align: center; /* Centraliza o título */
     }
 
     input, button {
