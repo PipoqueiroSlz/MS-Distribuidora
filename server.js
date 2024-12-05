@@ -16,10 +16,17 @@ app.use(express.json());
 // Configuração do Multer para salvar imagens enviadas pelo formulário
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/uploads');
+        const uploadPath = 'public/uploads';
+        // Verificando se a pasta 'uploads' existe, senão cria
+        if (!fs.existsSync(uploadPath)) {
+            fs.mkdirSync(uploadPath, { recursive: true });
+        }
+        cb(null, uploadPath); // Salva na pasta 'public/uploads'
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Salva o arquivo com timestamp
+        const timestamp = Date.now();
+        const extension = path.extname(file.originalname); // Pega a extensão do arquivo
+        cb(null, `${timestamp}${extension}`); // Nome do arquivo será o timestamp + extensão
     }
 });
 const upload = multer({ storage });
@@ -30,14 +37,14 @@ app.get('/api/produtos', (req, res) => {
         if (err) {
             return res.status(500).send('Erro ao ler o arquivo de produtos');
         }
-        res.json(JSON.parse(data));
+        res.json(JSON.parse(data)); // Retorna os produtos como JSON
     });
 });
 
 // Rota para adicionar um novo produto (POST)
 app.post('/api/produtos', upload.single('imagem'), (req, res) => {
     const { nome, preco } = req.body;
-    const imagem = req.file ? req.file.filename : null; // Nome do arquivo de imagem
+    const imagem = req.file ? req.file.filename : null; // Pega o nome da imagem enviada
     const produto = { id: Date.now(), nome, preco: parseFloat(preco), imagem };
 
     // Lendo os produtos existentes
@@ -46,8 +53,8 @@ app.post('/api/produtos', upload.single('imagem'), (req, res) => {
             return res.status(500).send('Erro ao ler o arquivo de produtos');
         }
 
-        const produtos = JSON.parse(data);
-        produtos.push(produto); // Adicionando o novo produto
+        const produtos = JSON.parse(data); // Converte o arquivo JSON para um objeto
+        produtos.push(produto); // Adiciona o novo produto
 
         // Escrevendo os produtos atualizados no arquivo
         fs.writeFile('produtos.json', JSON.stringify(produtos, null, 2), (err) => {
