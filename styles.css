@@ -1,145 +1,206 @@
-/* Reset básico */
-* {
+/* Estilo básico para o layout */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f9;
-    color: #333;
-    padding: 10px;
+    background-color: #f9f9f9;
 }
 
 /* Cabeçalho */
 header {
-    background-color: #0056b3;
+    background-color: #4CAF50;
     color: white;
-    padding: 15px;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
 }
 
-.header-container {
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #logo {
-    height: 50px;
-    width: auto;
+    max-width: 110px;
+    max-height: 110px;
+    object-fit: contain;
+    border-radius: 4px;
 }
 
-header h1 {
-    font-size: 1.8rem;
-    margin-left: 15px;
-    font-weight: 700;
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    padding-left: 150px;
+    text-align: center; /* Centraliza o título por padrão */
 }
 
-/* Seção de adicionar produto */
-.adicionar-produto, .buscar-produto, .catalogo {
-    margin-top: 20px;
-    background: white;
-    padding: 20px;
+/* Seções */
+section {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-.adicionar-produto h2, .buscar-produto h2, .catalogo h2 {
+h2 {
+    margin-bottom: 10px;
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    color: #333;
 }
 
-form input, form button {
-    display: block;
-    width: 100%;
+/* Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, button {
+    margin-bottom: 10px;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-form button {
-    background-color: #0056b3;
-    color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
 }
 
-form button:hover {
-    background-color: #00408a;
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do botão de navegação */
+.navegacao {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-cliente {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-cliente:hover {
+    background-color: #45a049;
 }
 
 /* Lista de produtos */
 #produtos-lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .produto-item {
-    border: 1px solid #ddd;
+    flex: 1 1 calc(50% - 15px);
+    background-color: #f1f1f1;
     border-radius: 8px;
     padding: 15px;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.produto-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .produto-item h3 {
+    margin-top: 0;
     font-size: 1.2rem;
-    margin-bottom: 5px;
+    color: #4CAF50;
 }
 
 .produto-item p {
-    font-size: 1rem;
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Estilo para imagem do produto */
+.produto-imagem {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
     margin-bottom: 10px;
+    border-radius: 8px;
 }
 
-.produto-item button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff4040;
-    color: white;
-    cursor: pointer;
-}
-
-.produto-item button:hover {
-    background-color: #cc3333;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 20px;
+/* Estilo do formulário de adicionar produto */
+input[type="file"] {
     padding: 10px;
-    background-color: #0056b3;
-    color: white;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-/* Estilo responsivo */
+/* Responsividade */
 @media (max-width: 768px) {
-    header h1 {
+    header {
+        text-align: left;
+        padding-left: 140px;
+    }
+
+    .logo-container {
+        top: 10px;
+        left: 10px;
+        width: 80px; /* Diminui o tamanho da logo */
+        height: 80px; /* Ajusta a altura também */
+    }
+
+    #logo {
+        max-width: 70px; /* Reduz a largura da logo */
+        max-height: 70px; /* Reduz a altura da logo */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding-left: 0; /* Remove o padding à esquerda para melhor ajuste */
+        text-align: center; /* Centraliza o título nas telas menores */
+    }
+
+    .produto-item {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
         font-size: 1.2rem;
+        padding-left: 0; /* Remove o padding à esquerda */
     }
 
-    form input, form button {
+    input, button {
         font-size: 0.9rem;
+        padding: 8px;
     }
 
-    #produtos-lista {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Reduz ainda mais a logo em telas muito pequenas */
+    .logo-container {
+        width: 60px;
+        height: 60px;
+    }
+
+    #logo {
+        max-width: 50px;
+        max-height: 50px;
     }
 }
