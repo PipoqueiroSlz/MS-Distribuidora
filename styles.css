@@ -17,9 +17,10 @@ header {
     background-color: #4CAF50;
     color: white;
     display: flex;
-    align-items: center;
-    padding: 10px 20px;
+    align-items: center; /* Alinha os itens verticalmente */
+    padding: 10px 20px; /* Reduz o padding vertical */
     border-bottom: 3px solid #3e8e41;
+    min-height: 100px; /* Garante altura mínima */
 }
 
 /* Logo */
