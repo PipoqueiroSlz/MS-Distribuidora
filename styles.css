@@ -25,15 +25,15 @@ header {
 
 /* Logo no canto superior esquerdo */
 .logo-container {
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
 }
 
 #logo {
@@ -42,13 +42,12 @@ header {
     object-fit: contain;
 }
 
-/* Título do cabeçalho */
+/* Título no centro */
 header h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: left;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 2rem;
     margin: 0;
-    flex-grow: 1; /* Garante que o título ocupe o espaço disponível */
 }
 
 /* Seções */
@@ -162,8 +161,8 @@ input[type="file"] {
 /* Responsividade */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .logo-container {
@@ -173,8 +172,6 @@ input[type="file"] {
 
     header h1 {
         font-size: 1.5rem;
-        text-align: center;
-        margin: 0 auto;
     }
 
     .produto-item {
