@@ -1,56 +1,30 @@
-// Catálogo de produtos
-class CatalogoMercearia {
-    constructor() {
-        this.produtos = [];
-    }
+// Referência ao elemento que exibirá os produtos
+const listaProdutos = document.getElementById("produtos-lista");
 
-    // Adiciona um novo produto ao catálogo
-    adicionarProduto(nome, preco, categoria, estoque) {
-        const produto = {
-            id: this.produtos.length + 1,
-            nome,
-            preco,
-        };
-        this.produtos.push(produto);
-        console.log(`Produto "${nome}" adicionado com sucesso!`);
-    }
-
-    // Lista todos os produtos do catálogo
-    listarProdutos() {
-        console.log("Catálogo de Produtos:");
-        if (this.produtos.length === 0) {
-            console.log("Nenhum produto cadastrado.");
-            return;
-        }
-        this.produtos.forEach(produto => {
-            console.log(`ID: ${produto.id} | Nome: ${produto.nome} | Preço: R$${produto.preco.toFixed(2)}`);
-        });
-    }
-
-    // Busca um produto pelo nome
-    buscarProduto(nome) {
-        const encontrados = this.produtos.filter(produto => produto.nome.toLowerCase().includes(nome.toLowerCase()));
-        if (encontrados.length === 0) {
-            console.log(`Nenhum produto encontrado com o nome "${nome}".`);
-        } else {
-            console.log("Produtos encontrados:");
-            encontrados.forEach(produto => {
-                console.log(`ID: ${produto.id} | Nome: ${produto.nome} | Preço: R$${produto.preco.toFixed(2)}`);
-            });
-        }
-    }
+// Função para renderizar os produtos na interface
+function renderizarProdutos(lista) {
+    listaProdutos.innerHTML = ""; // Limpa a lista antes de renderizar
+    lista.forEach((produto) => {
+        const produtoItem = document.createElement("div");
+        produtoItem.classList.add("produto-item");
+        produtoItem.innerHTML = `
+            <h3>${produto.nome}</h3>
+            <img src="public/uploads/${produto.imagem}" class="produto-imagem" alt="${produto.nome}">
+            <p><strong>Preço:</strong> R$${produto.preco.toFixed(2)}</p>
+        `;
+        listaProdutos.appendChild(produtoItem);
+    });
 }
 
-// Exemplo de uso do catálogo
-const catalogo = new CatalogoMercearia();
-
-// Adicionando produtos
-catalogo.adicionarProduto("Arroz", 5.99, "Grãos", 50);
-
-
-// Listando produtos
-catalogo.listarProdutos();
-
-// Buscando produtos
-catalogo.buscarProduto("Arroz");
-catalogo.buscarProduto("Leite");
+// Carregar os produtos ao iniciar a página
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('/api/produtos')
+        .then(response => response.json())
+        .then(produtos => {
+            renderizarProdutos(produtos);
+        })
+        .catch(error => {
+            console.error("Erro ao carregar os produtos:", error);
+            listaProdutos.innerHTML = "<p>Erro ao carregar os produtos.</p>";
+        });
+});
